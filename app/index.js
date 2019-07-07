@@ -3,8 +3,8 @@ const cheerio = require('cheerio')
 const _ = require('lodash')
 const url = require('url')
 
-
-const targetUrl = "https://www.fcc.gov"
+//Define target url
+const TARGET_URL = ""
 
 
 /**
@@ -77,12 +77,6 @@ const checkValidLink = (href) => {
     )
 }
 
-
-const buildAbsolutePath = (path) => {
-
-
-}
-
 /**
  * Process links to be absolute
  *
@@ -107,17 +101,24 @@ const processLinks = (links) => {
 }
 
 
-const checkUrlAvailability = (urls) =>  {
+/**
+ * Checks the availability
+ *
+ * @param {array} urls - The urls to check
+ * @return boolean
+ *
+ */
+const checkUrlAvailability = (urls) => {
     urls.map((url) => {
         axios
-        .get(url)
-        .then((res) => console.log(url + ' -> ' + res.status))
-        .catch((e) => {
-            if(e.response) {
-                console.log(url + ' -> ' + e.response.status)
-            }
-            
-        })
+            .get(url)
+            .then((res) => console.log(url + ' -> ' + res.status))
+            .catch((e) => {
+                if (e.response) {
+                    console.log(url + ' -> ' + e.response.status)
+                }
+
+            })
     })
 }
 
