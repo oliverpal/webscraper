@@ -8,7 +8,7 @@ const { fetchPage } = require('./fetcher')
 const { processLinks } = require('./processor')
 
 //Define target url
-const TARGET_URL = "https://www.afd.de"
+const TARGET_URL = proces.env.TARGET_URL
 
 
 fetchPage(TARGET_URL)
